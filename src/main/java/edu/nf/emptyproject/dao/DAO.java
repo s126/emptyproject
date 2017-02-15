@@ -1,6 +1,6 @@
 package edu.nf.emptyproject.dao;
 
 
-public interface IDao {
+public interface DAO {
 
 }

@@ -1,7 +1,7 @@
 package edu.nf.emptyproject.service;
 
 
-import edu.nf.emptyproject.dao.UserDao;
+import edu.nf.emptyproject.dao.UserDAO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 public class UserService {
 
     @Resource
-    private UserDao userDao;
+    private UserDAO userDAO;
 
 
     public void xxx() {

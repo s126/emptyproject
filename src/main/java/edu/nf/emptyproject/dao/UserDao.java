@@ -5,7 +5,7 @@ import edu.nf.emptyproject.model.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDao extends BaseDao {
+public class UserDAO extends BaseDAO {
 
     public void xxx() {
         getSession().get(User.class, 1);

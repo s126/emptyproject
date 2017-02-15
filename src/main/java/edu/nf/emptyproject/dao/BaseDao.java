@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 
 @Repository
-public abstract class BaseDao implements IDao {
+public abstract class BaseDAO implements DAO {
 
     @Resource
     protected SessionFactory sessionFactory;
