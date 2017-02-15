@@ -1,21 +1,14 @@
 package edu.nf.emptyproject.dao;
 
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
+import java.io.Serializable;
+import java.util.List;
 
-import javax.annotation.Resource;
-
-@Repository
-public abstract class BaseDAO implements DAO {
-
-    @Resource
-    protected SessionFactory sessionFactory;
-
-
-    public Session getSession() {
-        return sessionFactory.getCurrentSession();
-    }
-
+public interface BaseDAO<T> {
+    T get(Serializable id);
+    void save(T t);
+    void remove(T t);
+    void update(T t);
+    int count();
+    List<T> listAll();
 }
