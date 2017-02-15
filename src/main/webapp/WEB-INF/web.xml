@@ -31,14 +31,15 @@
     </servlet-mapping>
 
 
-    <!-- RESTful methods -->
+    <!-- full http methods support -->
     <filter>
-        <filter-name>fullmethods</filter-name>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
         <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>fullmethods</filter-name>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
         <servlet-name>mvc</servlet-name>
     </filter-mapping>
+
 
 </web-app>

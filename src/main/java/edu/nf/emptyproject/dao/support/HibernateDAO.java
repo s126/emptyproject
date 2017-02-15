@@ -1,6 +1,7 @@
 package edu.nf.emptyproject.dao.support;
 
 import edu.nf.emptyproject.dao.BaseDAO;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +10,14 @@ import java.io.Serializable;
 import java.util.List;
 
 @Repository
-public class HibernateDao<T> implements BaseDAO<T> {
+public class HibernateDAO<T> implements BaseDAO<T> {
 
     @Resource
     protected SessionFactory sessionFactory;
+
+    protected Session getSession() {
+        return sessionFactory.getCurrentSession();
+    }
 
     @Override
     public T get(Serializable id) {
