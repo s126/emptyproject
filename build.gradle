@@ -1,0 +1,47 @@
+group 'edu.nf'
+version '1.00'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    def hibernateVersion = "5.1.0.Final"
+    def springVersion = "4.3.5.RELEASE"
+
+    compile("javax.servlet:jstl:1.2",
+            "log4j:log4j:1.2.17",
+
+            files("E:/assets/ojdbc7.jar"),
+            "c3p0:c3p0:0.9.1.2",
+
+            "org.hibernate:hibernate-core:$hibernateVersion",
+            "org.hibernate:hibernate-validator:5.4.0.Final",
+
+            "org.springframework:spring-web:$springVersion",
+            "org.springframework:spring-aop:$springVersion",
+            "org.springframework:spring-orm:$springVersion",
+            "org.springframework:spring-webmvc:$springVersion",
+            "com.fasterxml.jackson.core:jackson-databind:2.5.1",
+    )
+
+    testCompile("junit:junit:4.12")
+    providedCompile("javax:javaee-web-api:7.0")
+
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+task copyJars(type: Copy) {
+    from configurations.compile, configurations.testCompile
+    into "lib"
+}
