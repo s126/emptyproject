@@ -1,12 +1,19 @@
 package edu.nf.emptyproject.controller;
 
 import edu.nf.emptyproject.model.User;
+import edu.nf.emptyproject.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
+
+    @Resource
+    private UserService userService;
 
     // 显示所有用户
     @GetMapping
@@ -28,7 +35,8 @@ public class UserController {
 
     // 显示某个用户信息
     @GetMapping("/{id}")
-    public String show(@PathVariable int id) {
+    public String show(@PathVariable long id, ModelMap model) {
+        model.addAttribute("user", userService.findUserById(id));
         return "users/show";
     }
 

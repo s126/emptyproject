@@ -5,10 +5,16 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface BaseDAO<T> {
-    T get(Serializable id);
     void save(T t);
-    void remove(T t);
+
+    void delete(T t);
+    void delete(Serializable id);
+
     void update(T t);
-    int count();
+
+    T findById(Serializable id);
     List<T> listAll();
+
+    int count();
+
 }
