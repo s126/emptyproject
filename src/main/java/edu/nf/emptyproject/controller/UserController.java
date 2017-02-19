@@ -36,8 +36,16 @@ public class UserController {
     // 显示某个用户信息
     @GetMapping("/{id}")
     public String show(@PathVariable long id, ModelMap model) {
+
+        // 添加一点测试数据
+        userService.initData();
+
+        // 查询，并添加到 model 中
         model.addAttribute("user", userService.findUserById(id));
+
+        // 返回页面，显示
         return "users/show";
+
     }
 
     // 进入编辑用户页面

@@ -1,11 +1,12 @@
 package edu.nf.emptyproject.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "EMPTY_USERS")
 public class User {
 
     // ============== properties =============== //
@@ -14,13 +15,18 @@ public class User {
     @GeneratedValue
     private long id;
 
+    @NotNull
     private String name;
+
+    private String password;
+
+    private String email;
 
     @OneToMany(mappedBy = "author")
     private List<Post> posts = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "relationships", joinColumns = {@JoinColumn(name = "m")}, inverseJoinColumns = {@JoinColumn(name = "s")})
+    @JoinTable(name = "EMPTY_RELATIONSHIPS", joinColumns = {@JoinColumn(name = "m")}, inverseJoinColumns = {@JoinColumn(name = "s")})
     private List<User> friends = new ArrayList<>();
 
     @ManyToMany(mappedBy = "friends")
@@ -47,6 +53,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 ", create_time=" + create_time +
                 ", update_time=" + update_time +
                 '}';
@@ -72,6 +79,22 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Date getCreate_time() {

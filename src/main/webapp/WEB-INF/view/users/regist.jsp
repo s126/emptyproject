@@ -2,36 +2,47 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>注册</title>
-  <script src="/js/jquery.js"></script>
-  <link rel="stylesheet" href="/css/custom.css">
+    <title>注册</title>
+    <script src="/js/jquery.js"></script>
+    <link rel="stylesheet" href="/css/custom.css">
 </head>
 <body>
 
-  <div id="container">
-    <form:form action="/users/create" modelAttribute="user">
+<div id="container">
+    <form:form action="/users" modelAttribute="user" method="post">
 
-      <div>
-        <form:errors path="*" cssClass="error" element="p" />
-      </div>
+        <fieldset>
+            <legend>用户注册</legend>
 
-      <div>
-        <form:input path="name" />
-      </div>
-      <div>
-        <form:input type="number" path="age" />
-      </div>
-      <div>
-        <form:input type="date" path="birth" />
-      </div>
+            <form:errors path="*" cssClass="error" element="p"/>
 
-      <input type="submit" value="注册" />
+            <p>
+                <form:label path="name">名字</form:label>
+                <form:input path="name" />
+                <form:errors path="name" />
+            </p>
+
+            <p>
+                <form:label path="email">邮箱</form:label>
+                <form:input type="email" path="email" />
+                <form:errors path="email" />
+            </p>
+
+
+            <p>
+                <form:label path="password">密码</form:label>
+                <form:password path="password" />
+                <form:errors path="password" />
+            </p>
+
+            <p>
+                <input type="submit" value="注册"/>
+            </p>
+
+        </fieldset>
 
     </form:form>
-  </div>
+</div>
 
-
-  <button id="showmsg">点我显示某些东西</button>
-  
 </body>
 </html>

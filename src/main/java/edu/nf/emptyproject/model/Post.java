@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "POSTS")
+@Table(name = "EMPTY_POSTS")
 public class Post {
 
     // ============== properties =============== //
