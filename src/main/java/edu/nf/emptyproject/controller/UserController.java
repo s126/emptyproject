@@ -22,9 +22,9 @@ public class UserController {
     }
 
     // 进入注册页面
-    @GetMapping("/add")
+    @GetMapping("/signup")
     public String add(User user) {
-        return "users/regist";
+        return "users/signup";
     }
 
     // 添加新的用户

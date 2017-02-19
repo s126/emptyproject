@@ -9,7 +9,7 @@
 <body>
 
 <header>
-    <p> URL：http://localhost:8080/users/1 </p>
+    <p> URL：http://localhost:8080/users/${id} </p>
     <p>对应的 handler 为： UserController.show()</p>
 </header>
 
