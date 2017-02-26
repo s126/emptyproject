@@ -5,17 +5,6 @@
          version="3.1">
 
 
-    <!-- 让表单支持 put/delete 等方法 -->
-    <filter>
-        <filter-name>hiddenHttpMethodFilter</filter-name>
-        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>hiddenHttpMethodFilter</filter-name>
-        <servlet-name>mvc</servlet-name>
-    </filter-mapping>
-
-
     <!-- 统一使用 UTF-8 编码 -->
     <filter>
         <filter-name>encodeFilter</filter-name>
@@ -31,20 +20,18 @@
     </filter>
     <filter-mapping>
         <filter-name>encodeFilter</filter-name>
-        <servlet-name>mvc</servlet-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 
-    <!-- Hibernate Session -->
+    <!-- 让表单支持 put/delete 等方法 -->
     <filter>
-        <filter-name>sessionFilter</filter-name>
-        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>sessionFilter</filter-name>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
         <servlet-name>mvc</servlet-name>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
 
