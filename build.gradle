@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    def hibernateVersion = "5.1.0.Final"
-    def springVersion = "4.3.5.RELEASE"
+    def hibernateVersion = "5.2.0.Final"
+    def springVersion = "4.3.6.RELEASE"
 
     compile("javax.servlet:jstl:1.2",
             "log4j:log4j:1.2.17",

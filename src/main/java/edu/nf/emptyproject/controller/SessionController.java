@@ -4,31 +4,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/sessions")
 public class SessionController {
 
-
     // 进入登陆页面
-    @GetMapping
+    @GetMapping("/login")
     public String index() {
-        return "index";
+        return "login";
     }
 
 
     // 点击进行登陆，即创建会话
-    @PostMapping
+    @PostMapping("/login")
     public String create() {
-        return "xxxxx";
+        return "xxx";
     }
 
 
     // 点击进行注销，即销毁会话
-    @DeleteMapping
+    @DeleteMapping("/logout")
     public String destory() {
-        return "redirect: /sessions";
+        return "redirect: /login";
     }
 
 }

@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+
     <!-- 让表单支持 put/delete 等方法 -->
     <filter>
         <filter-name>hiddenHttpMethodFilter</filter-name>
@@ -31,6 +32,19 @@
     <filter-mapping>
         <filter-name>encodeFilter</filter-name>
         <servlet-name>mvc</servlet-name>
+    </filter-mapping>
+
+
+    <!-- Hibernate Session -->
+    <filter>
+        <filter-name>sessionFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sessionFilter</filter-name>
+        <servlet-name>mvc</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
 

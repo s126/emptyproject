@@ -7,5 +7,11 @@
 
   <h1>出现错误</h1>
 
+  <div>
+    <pre>
+    ${errmsg}
+    </pre>
+  </div>
+
 </body>
 </html>
