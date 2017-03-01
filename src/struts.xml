@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.encoding" value="utf-8" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+    <package name="default" namespace="/" extends="struts-json">
+
+        <action name="signup">
+            <result>/WEB-INF/jsp/signup.jsp</result>
+        </action>
+
+        <action name="create" class="edu.nf.emptyproject.action.UserAction" method="create">
+            <result type="chain">xxx</result>
+            <result name="input">/WEB-INF/jsp/signup.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

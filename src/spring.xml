@@ -7,9 +7,7 @@
 
 
     <!-- annotations scan -->
-    <context:component-scan base-package="edu.nf.emptyproject">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-    </context:component-scan>
+    <context:component-scan base-package="edu.nf.emptyproject" />
 
 
     <!-- properties -->

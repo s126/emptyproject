@@ -12,23 +12,25 @@ repositories {
 }
 
 dependencies {
+    def strutsVersion = "2.3.28"
     def hibernateVersion = "5.2.0.Final"
     def springVersion = "4.3.6.RELEASE"
 
     compile("javax.servlet:jstl:1.2",
             "log4j:log4j:1.2.17",
 
-            files("E:/assets/ojdbc7.jar"),
+            "cn.easyproject:ojdbc7:12.1.0.2.0",
             "c3p0:c3p0:0.9.1.2",
 
+            "org.apache.struts:struts2-core:$strutsVersion",
+            "org.apache.struts:struts2-json-plugin:$strutsVersion",
+            "org.apache.struts:struts2-spring-plugin:$strutsVersion",
+
             "org.hibernate:hibernate-core:$hibernateVersion",
-            "org.hibernate:hibernate-validator:5.4.0.Final",
 
             "org.springframework:spring-web:$springVersion",
             "org.springframework:spring-aop:$springVersion",
             "org.springframework:spring-orm:$springVersion",
-            "org.springframework:spring-webmvc:$springVersion",
-            "com.fasterxml.jackson.core:jackson-databind:2.5.1",
             "org.aspectj:aspectjweaver:1.8.9"
     )
 
